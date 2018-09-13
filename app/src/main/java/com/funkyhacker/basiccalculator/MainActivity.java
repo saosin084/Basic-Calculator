@@ -9,11 +9,59 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button button;
+    private Button button2;
+    private Button button3;
+    private Button button4;
+    private Button button5;
+    private Button button6;
+    private Button button7;
+    private Button button8;
+    private Button button9;
+    private Button button0;
+    private Button buttonp;
+    private Button buttonm;
+    private Button buttont;
+    private Button buttond;
+    private Button buttone;
+    private Button buttondot;
+    private Button buttonC;
+    private Button buttonAC;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button = findViewById(R.id.button1);
+        Log.d("TEST", "onCreate");
+        initBtn();
+        initListener();
+    }
+
+    private void initBtn() {
+        button = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
+        button5 = findViewById(R.id.button5);
+        button6 = findViewById(R.id.button6);
+        button7 = findViewById(R.id.button7);
+        button8 = findViewById(R.id.button8);
+        button9 = findViewById(R.id.button9);
+        button0 = findViewById(R.id.button0);
+        buttonp = findViewById(R.id.buttonp);
+        buttonm = findViewById(R.id.buttonm);
+        buttont = findViewById(R.id.buttont);
+        buttond = findViewById(R.id.buttond);
+        buttone = findViewById(R.id.buttone);
+        buttondot = findViewById(R.id.buttondot);
+        buttonC = findViewById(R.id.buttonC);
+        buttonAC = findViewById(R.id.buttonAC);
+
+    }
+
+    private void initListener() {
+
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -22,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button.setOnClickListener(listener);
 
-        Button button2 = findViewById(R.id.button2);
         View.OnClickListener listener2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button2.setOnClickListener(listener2);
 
-        Button button3 = findViewById(R.id.button3);
         View.OnClickListener listener3 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button3.setOnClickListener(listener3);
 
-        Button button4 = findViewById(R.id.button4);
         View.OnClickListener listener4 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button4.setOnClickListener(listener4);
 
-        Button button5 = findViewById(R.id.button5);
         View.OnClickListener listener5 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button5.setOnClickListener(listener5);
 
-        Button button6 = findViewById(R.id.button6);
         View.OnClickListener listener6 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button6.setOnClickListener(listener6);
 
-        Button button7 = findViewById(R.id.button7);
         View.OnClickListener listener7 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button7.setOnClickListener(listener7);
 
-        Button button8 = findViewById(R.id.button8);
         View.OnClickListener listener8 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button8.setOnClickListener(listener8);
 
-        Button button9 = findViewById(R.id.button9);
         View.OnClickListener listener9 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button9.setOnClickListener(listener9);
 
-        Button button0 = findViewById(R.id.button0);
         View.OnClickListener listener0 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
         };
         button0.setOnClickListener(listener0);
 
-        Button buttonp = findViewById(R.id.buttonp);
         View.OnClickListener listenerp = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
         };
         buttonp.setOnClickListener(listenerp);
 
-        Button buttonm = findViewById(R.id.buttonm);
         View.OnClickListener listenerm = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
         };
         buttonm.setOnClickListener(listenerm);
 
-        Button buttont = findViewById(R.id.buttont);
         View.OnClickListener listenert = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
         };
         buttont.setOnClickListener(listenert);
 
-        Button buttond = findViewById(R.id.buttond);
         View.OnClickListener listenerd = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
         };
         buttond.setOnClickListener(listenerd);
 
-        Button buttone = findViewById(R.id.buttone);
         View.OnClickListener listenere = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
         };
         buttone.setOnClickListener(listenere);
 
-        Button buttondot = findViewById(R.id.buttondot);
         View.OnClickListener listenerdot = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,7 +190,6 @@ public class MainActivity extends AppCompatActivity {
         };
         buttondot.setOnClickListener(listenerdot);
 
-        Button buttonC = findViewById(R.id.buttonC);
         View.OnClickListener listenerC = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,7 +198,6 @@ public class MainActivity extends AppCompatActivity {
         };
         buttonC.setOnClickListener(listenerC);
 
-        Button buttonAC = findViewById(R.id.buttonAC);
         View.OnClickListener listenerAC = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,7 +205,5 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         buttonAC.setOnClickListener(listenerAC);
-
-        Log.d("TEST", "onCreate");
     }
 }
