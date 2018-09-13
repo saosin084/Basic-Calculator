@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttondot;
     private Button buttonC;
     private Button buttonAC;
-
+    private TextView textview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("TEST", "onCreate");
         initBtn();
         initListener();
+        textview = findViewById(R.id.textView3);
     }
 
     private void initBtn() {
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("1", "onClick");
+                textview.setText("1");
             }
         };
         button.setOnClickListener(listener);
@@ -74,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("2", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "2");
             }
         };
         button2.setOnClickListener(listener2);
