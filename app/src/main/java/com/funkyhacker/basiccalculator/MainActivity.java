@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("1", "onClick");
-                textview.setText("1");
+                String current = (String) textview.getText();
+                textview.setText(current + "1");
             }
         };
         button.setOnClickListener(listener);
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("3", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "3");
             }
         };
         button3.setOnClickListener(listener3);
@@ -95,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("4", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "4");
             }
         };
         button4.setOnClickListener(listener4);
@@ -103,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("5", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "5");
             }
         };
         button5.setOnClickListener(listener5);
@@ -111,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("6", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "6");
             }
         };
         button6.setOnClickListener(listener6);
@@ -119,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("7", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "7");
             }
         };
         button7.setOnClickListener(listener7);
@@ -127,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("8", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "8");
             }
         };
         button8.setOnClickListener(listener8);
@@ -135,6 +148,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("9", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "9");
             }
         };
         button9.setOnClickListener(listener9);
@@ -143,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("0", "onClick");
+                String current = (String) textview.getText();
+                textview.setText(current + "0");
             }
         };
         button0.setOnClickListener(listener0);
@@ -199,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("C", "onClick");
+                textview.setText("");
             }
         };
         buttonC.setOnClickListener(listenerC);
@@ -207,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("AC", "onClick");
+                textview.setText("");
             }
         };
         buttonAC.setOnClickListener(listenerAC);
