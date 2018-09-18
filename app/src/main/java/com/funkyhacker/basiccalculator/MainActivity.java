@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonC;
     private Button buttonAC;
     private TextView textview;
-    private int x,y;
+    private int x, y, i;
     private String s;
 
-    public enum Mode{
+    public enum Mode {
         PLUS,
         SUBTRACT,
         MULTIPLE,
@@ -82,28 +82,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void calculate(String number) {
+        Log.d(number, "onClick");
+        if (mode == NONE) {
+            String current = (String) textview.getText();
+            textview.setText(current + number);
+            current = (String) textview.getText();
+            x = Integer.parseInt(current);
+        } else {
+            if (i == 0) {
+                textview.setText(number);
+                i = 1;
+            } else {
+                String current = (String) textview.getText();
+                textview.setText(current + number);
+            }
+
+        }
+    }
+
     private void initListener() {
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("1", "onClick");
-                if(mode == NONE) {
-                    String current = (String) textview.getText();
-                    textview.setText(current + "1");
-                    current = (String) textview.getText();
-                    x = Integer.parseInt(current);
-                }
-                else if(mode == PLUS){
-                    if(){ textview.setText("1");
-                    }
-                    else{
-                        String current = (String) textview.getText();
-                        textview.setText(current + "1");
-                    }
-
-                }
-
+                calculate("1");
             }
         };
         button.setOnClickListener(listener);
@@ -111,9 +114,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("2", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "2");
+                calculate("2");
             }
         };
         button2.setOnClickListener(listener2);
@@ -121,9 +122,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener3 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("3", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "3");
+                calculate("3");
             }
         };
         button3.setOnClickListener(listener3);
@@ -131,9 +130,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener4 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("4", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "4");
+                calculate("4");
             }
         };
         button4.setOnClickListener(listener4);
@@ -141,9 +138,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener5 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("5", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "5");
+                calculate("5");
             }
         };
         button5.setOnClickListener(listener5);
@@ -151,9 +146,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener6 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("6", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "6");
+                calculate("6");
             }
         };
         button6.setOnClickListener(listener6);
@@ -161,9 +154,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener7 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("7", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "7");
+                calculate("7");
             }
         };
         button7.setOnClickListener(listener7);
@@ -171,9 +162,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener8 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("8", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "8");
+                calculate("8");
             }
         };
         button8.setOnClickListener(listener8);
@@ -181,9 +170,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener9 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("9", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "9");
+                calculate("9");
             }
         };
         button9.setOnClickListener(listener9);
@@ -191,9 +178,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener0 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("0", "onClick");
-                String current = (String) textview.getText();
-                textview.setText(current + "0");
+                calculate("0");
             }
         };
         button0.setOnClickListener(listener0);
@@ -238,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("equal", "onClick");
-                if (mode == PLUS){
+                if (mode == PLUS) {
 
                     String current = (String) textview.getText();
                     y = Integer.parseInt(current);
@@ -246,7 +231,26 @@ public class MainActivity extends AppCompatActivity {
                     s = String.valueOf(x);
                     textview.setText(s);
 
+                } else if (mode == SUBTRACT) {
+                    String current = (String) textview.getText();
+                    y = Integer.parseInt(current);
+                    x = x - y;
+                    s = String.valueOf(x);
+                    textview.setText(s);
+                } else if (mode == MULTIPLE) {
+                    String current = (String) textview.getText();
+                    y = Integer.parseInt(current);
+                    x = x * y;
+                    s = String.valueOf(x);
+                    textview.setText(s);
+                } else if (mode == DIVIDE) {
+                    String current = (String) textview.getText();
+                    y = Integer.parseInt(current);
+                    x = x / y;
+                    s = String.valueOf(x);
+                    textview.setText(s);
                 }
+
             }
         };
         buttone.setOnClickListener(listenere);
@@ -264,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("C", "onClick");
                 textview.setText("");
-                mode = NONE;
+                i = 0;
             }
         };
         buttonC.setOnClickListener(listenerC);
@@ -275,6 +279,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("AC", "onClick");
                 textview.setText("");
                 mode = NONE;
+                i = 0;
             }
         };
         buttonAC.setOnClickListener(listenerAC);
