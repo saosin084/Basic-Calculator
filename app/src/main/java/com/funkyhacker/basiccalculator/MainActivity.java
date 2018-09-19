@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonC;
     private Button buttonAC;
     private TextView textview;
-    private int x, y, i;
+    private long x, y;
+    private int i;
     private String s;
 
     public enum Mode {
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(number, "onClick");
         if (mode == NONE) {
             String current = (String) textview.getText();
-            textview.setText(current + number);
+            if(current.length() <10){textview.setText(current + number);}
             current = (String) textview.getText();
             x = Integer.parseInt(current);
         } else {
