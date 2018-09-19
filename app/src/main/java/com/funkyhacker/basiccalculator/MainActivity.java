@@ -5,6 +5,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import static com.funkyhacker.basiccalculator.MainActivity.Mode.DIVIDE;
+import static com.funkyhacker.basiccalculator.MainActivity.Mode.MULTIPLE;
+import static com.funkyhacker.basiccalculator.MainActivity.Mode.NONE;
+import static com.funkyhacker.basiccalculator.MainActivity.Mode.PLUS;
+import static com.funkyhacker.basiccalculator.MainActivity.Mode.SUBTRACT;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +34,20 @@ public class MainActivity extends AppCompatActivity {
     private Button buttondot;
     private Button buttonC;
     private Button buttonAC;
+    private TextView textview;
+    private long x, y;
+    private int i;
+    private String s;
 
+    public enum Mode {
+        PLUS,
+        SUBTRACT,
+        MULTIPLE,
+        DIVIDE,
+        NONE
+    }
+
+    private Mode mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d("TEST", "onCreate");
         initBtn();
         initListener();
+        textview = findViewById(R.id.textView3);
+        mode = NONE;
+
     }
 
     private void initBtn() {
@@ -60,12 +83,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void calculate(String number) {
+        Log.d(number, "onClick");
+        if (mode == NONE) {
+            String current = (String) textview.getText();
+            if(current.length() <10){textview.setText(current + number);}
+            current = (String) textview.getText();
+            x = Integer.parseInt(current);
+        } else {
+            if (i == 0) {
+                textview.setText(number);
+                i = 1;
+            } else {
+                String current = (String) textview.getText();
+                textview.setText(current + number);
+            }
+
+        }
+    }
+
     private void initListener() {
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("1", "onClick");
+                calculate("1");
             }
         };
         button.setOnClickListener(listener);
@@ -73,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("2", "onClick");
+                calculate("2");
             }
         };
         button2.setOnClickListener(listener2);
@@ -81,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener3 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("3", "onClick");
+                calculate("3");
             }
         };
         button3.setOnClickListener(listener3);
@@ -89,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener4 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("4", "onClick");
+                calculate("4");
             }
         };
         button4.setOnClickListener(listener4);
@@ -97,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener5 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("5", "onClick");
+                calculate("5");
             }
         };
         button5.setOnClickListener(listener5);
@@ -105,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener6 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("6", "onClick");
+                calculate("6");
             }
         };
         button6.setOnClickListener(listener6);
@@ -113,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener7 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("7", "onClick");
+                calculate("7");
             }
         };
         button7.setOnClickListener(listener7);
@@ -121,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener8 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("8", "onClick");
+                calculate("8");
             }
         };
         button8.setOnClickListener(listener8);
@@ -129,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener9 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("9", "onClick");
+                calculate("9");
             }
         };
         button9.setOnClickListener(listener9);
@@ -137,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener0 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("0", "onClick");
+                calculate("0");
             }
         };
         button0.setOnClickListener(listener0);
@@ -146,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("plus", "onClick");
+                mode = PLUS;
             }
         };
         buttonp.setOnClickListener(listenerp);
@@ -154,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("minus", "onClick");
+                mode = SUBTRACT;
             }
         };
         buttonm.setOnClickListener(listenerm);
@@ -162,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("times", "onClick");
+                mode = MULTIPLE;
             }
         };
         buttont.setOnClickListener(listenert);
@@ -170,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("div", "onClick");
+                mode = DIVIDE;
             }
         };
         buttond.setOnClickListener(listenerd);
@@ -178,6 +224,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("equal", "onClick");
+                if (mode == PLUS) {
+
+                    String current = (String) textview.getText();
+                    y = Integer.parseInt(current);
+                    x = x + y;
+                    s = String.valueOf(x);
+                    textview.setText(s);
+
+                } else if (mode == SUBTRACT) {
+                    String current = (String) textview.getText();
+                    y = Integer.parseInt(current);
+                    x = x - y;
+                    s = String.valueOf(x);
+                    textview.setText(s);
+                } else if (mode == MULTIPLE) {
+                    String current = (String) textview.getText();
+                    y = Integer.parseInt(current);
+                    x = x * y;
+                    s = String.valueOf(x);
+                    textview.setText(s);
+                } else if (mode == DIVIDE) {
+                    String current = (String) textview.getText();
+                    y = Integer.parseInt(current);
+                    x = x / y;
+                    s = String.valueOf(x);
+                    textview.setText(s);
+                }
+
             }
         };
         buttone.setOnClickListener(listenere);
@@ -194,6 +268,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("C", "onClick");
+                textview.setText("");
+                i = 0;
             }
         };
         buttonC.setOnClickListener(listenerC);
@@ -202,6 +278,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("AC", "onClick");
+                textview.setText("");
+                mode = NONE;
+                i = 0;
             }
         };
         buttonAC.setOnClickListener(listenerAC);
